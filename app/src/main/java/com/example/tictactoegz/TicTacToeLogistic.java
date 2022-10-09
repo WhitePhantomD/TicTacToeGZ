@@ -40,11 +40,17 @@ public class TicTacToeLogistic {
 
     //checks if one player won
     public boolean ifWon(ImageView imageView) {
-        imageView.setImageResource(R.drawable.x_won_image);
+        if (tttArray[0] == 1 && tttArray[1] == 1 && tttArray[2] == 1 || tttArray[3] == 1 && tttArray[4] == 1 && tttArray[5] == 1 || tttArray[6] == 1 && tttArray[7] == 1 && tttArray[8] == 1 || tttArray[0] == 1 && tttArray[3] == 1 && tttArray[6] == 1 || tttArray[1] == 1 && tttArray[4] == 1 && tttArray[7] == 1 || tttArray[2] == 1 && tttArray[5] == 1 && tttArray[8] == 1 || tttArray[0] == 1 && tttArray[4] == 1 && tttArray[8] == 1 || tttArray[2] == 1 && tttArray[4] == 1 && tttArray[6] == 1 ) {
+            imageView.setImageResource(R.drawable.x_won_image);
+            return true;
+        } else if(tttArray[0] == 2 && tttArray[1] == 2 && tttArray[2] == 2 || tttArray[3] == 2 && tttArray[4] == 2 && tttArray[5] == 2 || tttArray[6] == 2 && tttArray[7] == 2 && tttArray[8] == 2 || tttArray[0] == 2 && tttArray[3] == 2 && tttArray[6] == 2 || tttArray[1] == 2 && tttArray[4] == 2 && tttArray[7] == 2 || tttArray[2] == 2 && tttArray[5] == 2 && tttArray[8] == 2 || tttArray[0] == 2 && tttArray[4] == 2 && tttArray[8] == 2 || tttArray[2] == 2 && tttArray[4] == 2 && tttArray[6] == 2 ){
+            imageView.setImageResource(R.drawable.o_won_image);
+            return true;
+        }
         return false;
     }
 
-    public void reset(ImageView one,ImageView two,ImageView three,ImageView four,ImageView five,ImageView six,ImageView seven,ImageView eight,ImageView nine){
+    public void reset(ImageView one,ImageView two,ImageView three,ImageView four,ImageView five,ImageView six,ImageView seven,ImageView eight,ImageView nine,ImageView ten){
         moveCounter = 0;
         Arrays.fill(tttArray,0);
         Arrays.fill(taken,false);
@@ -57,5 +63,15 @@ public class TicTacToeLogistic {
         seven.setImageResource(R.drawable.invisible_image);
         eight.setImageResource(R.drawable.invisible_image);
         nine.setImageResource(R.drawable.invisible_image);
+        ten.setImageResource(R.drawable.invisible_image);
+        one.setClickable(true);
+        two.setClickable(true);
+        three.setClickable(true);
+        four.setClickable(true);
+        five.setClickable(true);
+        six.setClickable(true);
+        seven.setClickable(true);
+        eight.setClickable(true);
+        nine.setClickable(true);
     }
 }

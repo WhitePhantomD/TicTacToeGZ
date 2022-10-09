@@ -12,7 +12,7 @@ import com.example.tictactoegz.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView imageViewLeftTop,imageViewLeftMid,imageViewLeftBot,imageViewMidTop,imageViewMidMid,imageViewMidBot,imageViewRightTop,imageViewRightMid,imageViewRightBot;
+    ImageView imageViewLeftTop,imageViewLeftMid,imageViewLeftBot,imageViewMidTop,imageViewMidMid,imageViewMidBot,imageViewRightTop,imageViewRightMid,imageViewRightBot,imageViewResetButton,imageViewWon;
 
     TicTacToeLogistic tttl = new TicTacToeLogistic();
 
@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageViewRightTop = findViewById(R.id.imageViewRightTop);
         imageViewRightMid = findViewById(R.id.imageViewRightMid);
         imageViewRightBot = findViewById(R.id.imageViewRightBot);
+        imageViewResetButton = findViewById(R.id.imageViewResetButton);
+        imageViewWon = findViewById(R.id.imageViewWon);
 
         imageViewLeftTop.setOnClickListener(this);
         imageViewLeftMid.setOnClickListener(this);
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageViewRightTop.setOnClickListener(this);
         imageViewRightMid.setOnClickListener(this);
         imageViewRightBot.setOnClickListener(this);
+        imageViewResetButton.setOnClickListener(this);
+
     }
 
 
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.imageViewLeftTop:
                 tttl.move(imageViewLeftTop,0);
+                tttl.ifWon(imageViewWon);
                 break;
             case R.id.imageViewLeftMid:
                 tttl.move(imageViewLeftMid,3);
@@ -73,6 +78,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.imageViewRightBot:
                 tttl.move(imageViewRightBot,8);
                 break;
+            case R.id.imageViewResetButton:
+                tttl.reset(imageViewLeftTop,imageViewLeftMid,imageViewLeftBot,imageViewMidTop,imageViewMidMid,imageViewMidBot,imageViewRightTop,imageViewRightMid,imageViewRightBot);
+                break;
         }
     }
+
+//    public ImageView getImageViewWon() {
+//        return imageViewWon=findViewById(R.id.imageViewWon);
+//    }
 }
